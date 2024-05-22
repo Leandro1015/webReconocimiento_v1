@@ -21,12 +21,12 @@
             <!-- Botón o enlace para redirigir a formRegistro.html -->
             <a href="formRegistro.html">¿No tienes una cuenta? ¡Regístrate!</a>
             <?php 
-                //if (isset($_GET["mensaje"])) { 
-                 //   echo "<p class='error-message'>.$_GET['mensaje'].</p>"; 
-               // } 
-               if (isset($algo){
+                if (isset($_GET["mensaje"])) { 
+                   echo "<p class='error-message'>.$_GET['mensaje'].</p>"; 
+                } 
+                if (isset($algo){
                 
-               }
+                 }
 
             ?>
         </div>

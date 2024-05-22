@@ -1,7 +1,7 @@
 <?php
-    include 'conexion2.php';
+    include 'conexion.php';
 
-    class Identificacion extends Conectar
+    class M_identificacion extends Conectar
     {   
         public function iniciarSesion($nombre, $contrasenia)
         {

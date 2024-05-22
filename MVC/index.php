@@ -1,21 +1,21 @@
 <?php
-    if (!isset($_GET["c"])) {
-       $nombre_controlador = csesion;
-       $nombre_metodo = mostrarFIS;
+    require_once 'config.php';
+    
+    if (!isset($_GET["c"]) || !isset($_GET["m"])) {
+        $nombre_controlador = CONTROLADOR_POR_DEFECTO;
+        $nombre_metodo = METODO_POR_DEFECTO;
     } else {
         $nombre_controlador = $_GET["c"];
-        $nombre_metodo = $_GET["m"];    
+        $nombre_metodo = $_GET["m"];
     }
 
     require_once $nombre_controlador . '.php';
-        
+    
     $objetoContr = new $nombre_controlador();
-    $algo=$objetoContr->{$nombre_metodo}();
+    $datos_vista = $objetoContr->{$nombre_metodo}();
 
-    $vista=$objetoContr->nombre_vista.'.php';
-    echo $vista; // siempre es un archivo
-    //si existe el archivo de la vista
-    //require_once $vista;
+    require_once $objetoContr->nombre_vista . '.php';
+    // siempre es un archivo
 
     // include $objeto_sesion->nombre_vista.'.php'; //esto genera el codigo: ......;
     
