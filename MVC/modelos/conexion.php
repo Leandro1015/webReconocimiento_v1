@@ -1,5 +1,6 @@
 <?php
-    include 'configdb.php';
+    require_once './config/configdb.php';
+
     class Conectar {
         public $conexion;
 

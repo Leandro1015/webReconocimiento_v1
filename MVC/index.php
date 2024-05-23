@@ -1,6 +1,6 @@
 <?php
-    require_once 'config.php';
-    
+    require_once './config/config.php';
+
     if (!isset($_GET["c"]) || !isset($_GET["m"])) {
         $nombre_controlador = CONTROLADOR_POR_DEFECTO;
         $nombre_metodo = METODO_POR_DEFECTO;
@@ -9,12 +9,25 @@
         $nombre_metodo = $_GET["m"];
     }
 
-    require_once $nombre_controlador . '.php';
-    
+    $ruta_controlador = './controladores/' . $nombre_controlador . '.php';
+
+    if (file_exists($ruta_controlador)) {
+        require_once $ruta_controlador;
+    } else {
+        echo "Error: El controlador " . $nombre_controlador . " no existe.";
+    }
+
     $objetoContr = new $nombre_controlador();
     $datos_vista = $objetoContr->{$nombre_metodo}();
 
-    require_once $objetoContr->nombre_vista . '.php';
+    $vista = $objetoContr->nombre_vista . '.php';
+
+    if (file_exists($vista)) {
+        require_once $vista;
+    } else {
+        echo "Error: La vista " . $vista . " no existe.";
+    }
+
     // siempre es un archivo
 
     // include $objeto_sesion->nombre_vista.'.php'; //esto genera el codigo: ......;

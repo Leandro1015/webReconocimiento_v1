@@ -1,5 +1,5 @@
 <?php
-    include 'conexion.php';
+    require_once 'conexion.php';
 
     class M_identificacion extends Conectar
     {   
@@ -18,4 +18,21 @@
                 return false;
             }
         }
+
+        /*public function registrar($idAlumno, $nombre, $correo, $contrasenia, $webReconocimiento)
+        {
+            $sql = "INSERT INTO alumno (idAlumno, nombre, correo, contrasenia, webReconocimiento) 
+                    VALUES ('$idAlumno', '$nombre', '$correo', '$contrasenia', '$webReconocimiento')";
+            
+            $exito = $this->conexion->query($sql);
+
+            if ($exito && $this->conexion->affected_rows > 0) 
+            {
+                return true; 
+            } 
+            else 
+            {
+                return false; 
+            }
+        }*/
     }
