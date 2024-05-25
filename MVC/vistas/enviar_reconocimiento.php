@@ -19,7 +19,7 @@
                 <label>Alumno que recibe:</label><br>
                 <select name="alumnoNombre">
                     <?php
-                       /* require_once '../conexion.php';
+                        /*require_once '../conexion.php';
                         $conectarInstancia = new Conectar();
                         $conexion = $conectarInstancia -> conexion;
 

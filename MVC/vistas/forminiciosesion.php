@@ -18,8 +18,8 @@
 
                 <input type="submit" value="Enviar">
             </form>
-            <!-- Botón o enlace para redirigir a formRegistro.html -->
-            <a href="formRegistro.html">¿No tienes una cuenta? ¡Regístrate!</a>
+            <!-- Botón o enlace para redirigir a registro_form.html -->
+            <p><a href="vistas/registro_form.php">¿No tienes una cuenta? ¡Regístrate!</a></p>
             <?php 
                 if (isset($datos_vista)) { 
                     echo "<p class='error-message'>" . $datos_vista . "</p>";

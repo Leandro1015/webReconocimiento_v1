@@ -19,7 +19,7 @@
             }
         }
 
-        /*public function registrar($idAlumno, $nombre, $correo, $contrasenia, $webReconocimiento)
+        public function registrar($idAlumno, $nombre, $correo, $contrasenia, $webReconocimiento)
         {
             $sql = "INSERT INTO alumno (idAlumno, nombre, correo, contrasenia, webReconocimiento) 
                     VALUES ('$idAlumno', '$nombre', '$correo', '$contrasenia', '$webReconocimiento')";
@@ -34,5 +34,5 @@
             {
                 return false; 
             }
-        }*/
+        }
     }
