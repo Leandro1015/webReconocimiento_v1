@@ -4,7 +4,7 @@
 
 -- Tabla alumno
 CREATE TABLE alumno (
-  idAlumno tinyint unsigned NOT NULL, -- Número de alumno en clase
+  num_Alumno tinyint unsigned NOT NULL, -- Número de alumno en clase
   nombre varchar(80) NOT NULL,
   correo varchar(255) NOT NULL,
   contrasenia varchar(100) NOT NULL,
@@ -22,13 +22,13 @@ CREATE TABLE reconocimiento (
     idAlumEnvia tinyint unsigned NOT NULL,
     idAlumRecibe tinyint unsigned NOT NULL,
 	  constraint pk_recon PRIMARY KEY (idReconocimiento),
-    constraint fk_alumno_env FOREIGN KEY (idAlumEnvia) REFERENCES alumno(idAlumno),
-    constraint fk_alumno_rec FOREIGN KEY (idAlumRecibe) REFERENCES alumno(idAlumno)
+    constraint fk_alumno_env FOREIGN KEY (idAlumEnvia) REFERENCES alumno(num_Alumno),
+    constraint fk_alumno_rec FOREIGN KEY (idAlumRecibe) REFERENCES alumno(num_Alumno)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE INDEX ix_alumno_nombre ON alumno(nombre);
 
-/*INSERT INTO alumno (idAlumno, nombre, correo, contrasenia, webReconocimiento) VALUES
+/*INSERT INTO alumno (num_Alumno, nombre, correo, contrasenia, webReconocimiento) VALUES
 (1, 'Juan', 'juanperez1@gmail.com', 'password123', 'www.juanperez.com'),
 (2, 'María', 'maria.garcia2@gmail.com', 'securepass', 'www.mariagarcia.com'),
 (3, 'Pedro', 'pedro.lopez3@gmail.com', 'mypass123', NULL),

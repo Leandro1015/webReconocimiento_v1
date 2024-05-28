@@ -3,15 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/estilo.css">
+        <link rel="stylesheet" href="./css/estilo.css">
         <title>Formulario de Registro del Alumno</title>
     </head>
     <body>    
         <div class="contenedor">
             <h2>Registro</h2>
             <form action="index.php?c=Controlador_sesion&m=registrar" method="post">
-                <label>ID de Alumno:</label><br>
-                <input type="number" name="idAlumno"><br><br>
+                <label>Numero de Alumno:</label><br>
+                <input type="number" name="num_Alumno"><br><br>
 
                 <label>Nombre:</label><br>
                 <input type="text" name="nombre"><br><br>

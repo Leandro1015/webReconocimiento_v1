@@ -6,7 +6,7 @@
         public function iniciarSesion($nombre, $contrasenia)
         {
             // Consulta SQL para buscar el usuario por alumno y contraseña
-            $sql = "SELECT idAlumno, nombre FROM alumno WHERE nombre='$nombre' AND contrasenia='$contrasenia'";
+            $sql = "SELECT num_Alumno, nombre FROM alumno WHERE nombre='$nombre' AND contrasenia='$contrasenia'";
             $resultado = $this->conexion->query($sql);
 
             // Verificar si se encontró un usuario
@@ -19,14 +19,14 @@
             }
         }
 
-        public function registrar($idAlumno, $nombre, $correo, $contrasenia, $webReconocimiento)
+        public function registrar($num_Alumno, $nombre, $correo, $contrasenia, $webReconocimiento)
         {
-            $sql = "INSERT INTO alumno (idAlumno, nombre, correo, contrasenia, webReconocimiento) 
-                    VALUES ('$idAlumno', '$nombre', '$correo', '$contrasenia', '$webReconocimiento')";
+            $sql = "INSERT INTO alumno (num_Alumno, nombre, correo, contrasenia, webReconocimiento) 
+                    VALUES ('$num_Alumno', '$nombre', '$correo', '$contrasenia', '$webReconocimiento')";
             
-            $exito = $this->conexion->query($sql);
+            $resultado = $this->conexion->query($sql);
 
-            if ($exito && $this->conexion->affected_rows > 0) 
+            if ($resultado && $this->conexion->affected_rows > 0) 
             {
                 return true; 
             } 

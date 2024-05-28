@@ -9,7 +9,7 @@
     <body>
         <div class="contenedor">
             <h2>Enviar Reconocimiento</h2>
-            <form action="#" method="POST">
+            <form action="index.php?c=Controlador_rec&m=comprobarRec" method="POST">
                 <label>Momento:</label><br>
                 <input type="text" name="momento"><br><br>
 
@@ -17,27 +17,15 @@
                 <textarea name="descripcion"></textarea><br><br>
 
                 <label>Alumno que recibe:</label><br>
-                <select name="alumnoNombre">
+                <select name="idAlumnoRecibe">
                     <?php
-                     while ($fila["nombre"] = ()) {
-                         echo "<option value='" . $fila['idAlumno'] . "'>" . $fila['nombre'] . "</option>";
-                    }
-
-
-                        /*require_once '../conexion.php';
-                        $conectarInstancia = new Conectar();
-                        $conexion = $conectarInstancia -> conexion;
-
-                        $sql = "SELECT idAlumno, nombre FROM alumno";
-                        $resultado = $conexion->query($sql);
-                    
-                        if ($resultado->num_rows > 0) {
-                            while ($fila = $resultado->fetch_assoc()) {
+                        if (!empty($datos_vista)) {
+                            foreach ($datos_vista as $fila) {
                                 echo "<option value='" . $fila['idAlumno'] . "'>" . $fila['nombre'] . "</option>";
                             }
                         } else {
                             echo "<option value=''>No hay alumnos disponibles</option>";
-                        }*/
+                        }
                     ?>
                 </select><br><br>
                 <input type="submit" value="Enviar">
