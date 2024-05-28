@@ -19,7 +19,7 @@
                 <label>Alumno que recibe:</label><br>
                 <select name="idAlumnoRecibe">
                     <?php
-                        if (!empty($datos_vista)) {
+                        if (isset($datos_vista)) {
                             foreach ($datos_vista as $fila) {
                                 echo "<option value='" . $fila['idAlumno'] . "'>" . $fila['nombre'] . "</option>";
                             }
