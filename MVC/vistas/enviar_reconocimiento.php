@@ -19,6 +19,11 @@
                 <label>Alumno que recibe:</label><br>
                 <select name="alumnoNombre">
                     <?php
+                     while ($fila["nombre"] = ()) {
+                         echo "<option value='" . $fila['idAlumno'] . "'>" . $fila['nombre'] . "</option>";
+                    }
+
+
                         /*require_once '../conexion.php';
                         $conectarInstancia = new Conectar();
                         $conexion = $conectarInstancia -> conexion;

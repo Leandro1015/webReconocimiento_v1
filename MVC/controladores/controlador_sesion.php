@@ -9,6 +9,10 @@
             $this->identificacion = new M_identificacion();
         }
 
+        public function mostrarFIS() {
+            $this->nombre_vista = './vistas/forminiciosesion';
+        }
+
         public function comprobar() {         
             $msj = null;
             if (!empty($_POST['nombre']) && !empty($_POST['contrasenia'])) {
@@ -34,8 +38,8 @@
             }
         }
 
-        public function mostrarFIS() {
-            $this->nombre_vista = './vistas/forminiciosesion';
+        public function mostrarFRG() {
+            $this->nombre_vista = './vistas/registro_form';
         }
 
         public function registrar() {
