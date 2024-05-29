@@ -16,16 +16,18 @@
                 <label>Descripción:</label><br>
                 <textarea name="descripcion"></textarea><br><br>
 
+                <input type="hidden" name="idAlumnoEnvia" value="<?php echo $_SESSION['idAlumnoEnvia']; ?>">
+
                 <label>Alumno que recibe:</label><br>
                 <select name="idAlumnoRecibe">
                     <?php
-                        if (isset($datos_vista)) {
-                            foreach ($datos_vista as $fila) {
-                                echo "<option value='" . $fila['idAlumno'] . "'>" . $fila['nombre'] . "</option>";
+                        if (!empty($datos_vista['alumnos'])) {
+                            foreach ($datos_vista['alumnos'] as $alumno) {
+                                echo "<option value='" . $alumno['num_Alumno'] . "'>" . $alumno['nombre'] . "</option>";
                             }
                         } else {
                             echo "<option value=''>No hay alumnos disponibles</option>";
-                        }
+                        }                
                     ?>
                 </select><br><br>
                 <input type="submit" value="Enviar">

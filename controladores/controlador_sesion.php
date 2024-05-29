@@ -13,16 +13,15 @@
             $this->nombre_vista = './vistas/forminiciosesion';
         }
 
-        public function comprobar() {         
+        public function comprobar() {   
             $msj = null;
             if (!empty($_POST['nombre']) && !empty($_POST['contrasenia'])) {
-
                 $nombre = $_POST['nombre'];
                 $contrasenia = $_POST['contrasenia'];
-
                 $resultado = $this->identificacion->iniciarSesion($nombre, $contrasenia);
-
+                
                 if ($resultado) {
+                    $_SESSION['idAlumnoEnvia'] = $resultado['num_Alumno']; 
                     $this->nombre_vista = './vistas/inicio';
                 } 
                 else {
@@ -30,13 +29,14 @@
                     $this->nombre_vista = './vistas/forminiciosesion';
                     return $msj;
                 }
-            }
+            } 
             else { 
                 $msj = "Por favor, complete todos los campos.";
                 $this->nombre_vista = './vistas/forminiciosesion';
                 return $msj;
             }
         }
+        
 
         public function mostrarFRG() {
             $this->nombre_vista = './vistas/registro_form';
@@ -58,7 +58,7 @@
                 $resultado = $this->identificacion->registrar($num_Alumno, $nombre, $correo, $contrasenia, $webReconocimiento);
         
                 if ($resultado) {
-                    $this->nombre_vista = './vistas/exito';
+                    $this->nombre_vista = './vistas/inicio';
                 } 
                 else {
                     $msj = $this->comprobarRegistro($num_Alumno, $correo);

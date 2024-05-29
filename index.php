@@ -1,6 +1,9 @@
 <?php
+    session_start();
+
     require_once './config/config.php';
 
+    // Verificar si el controlador y el método están definidos en la URL
     if (!isset($_GET["c"]) || !isset($_GET["m"])) {
         $nombre_controlador = CONTROLADOR_POR_DEFECTO;
         $nombre_metodo = METODO_POR_DEFECTO;
@@ -17,9 +20,11 @@
         echo "Error: El controlador " . $nombre_controlador . " no existe.";
     }
 
+    // Crear instancia del controlador y llamar al método correspondiente
     $objetoContr = new $nombre_controlador();
     $datos_vista = $objetoContr->{$nombre_metodo}();
 
+    // Obtener el nombre de la vista desde el controlador
     $vista = $objetoContr->nombre_vista . '.php';
 
     if (file_exists($vista)) {

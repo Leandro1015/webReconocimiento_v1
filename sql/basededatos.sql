@@ -9,7 +9,7 @@ CREATE TABLE alumno (
   correo varchar(255) NOT NULL,
   contrasenia varchar(100) NOT NULL,
   webReconocimiento varchar(50),
-  constraint pk_usuario PRIMARY KEY (idAlumno),
+  constraint pk_usuario PRIMARY KEY (num_Alumno),
   constraint correo_unico UNIQUE(correo),
   constraint WEB_unicA UNIQUE(webReconocimiento)  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -36,7 +36,7 @@ CREATE INDEX ix_alumno_nombre ON alumno(nombre);
 (5, 'Carlos', 'carlosr5@gmail.com', 'password', NULL),
 (6, 'Laura', 'lauras6@gmail.com', '123456', 'www.laurasanchez.com'),
 (7, 'Diego', 'diego.gomez7@gmail.com', 'password321', NULL),
-(8, 'Sofía', 'sfernandez8@gmail.com', 'pass123', 'www.sofiafernandez.com'),
+(8, 'Sofía', 'sfernandez8@gmail.com', 'pass1723', 'www.sofiafernandez.com'),
 (9, 'Javier', 'javi.ruiz9@gmail.com', 'securepassword', NULL),
 (10, 'Isabel', 'isabelg10@gmail.com', 'abcxyz', 'www.isabelgarcia.com'),
 (11, 'Martín', 'martinp11@gmail.com', 'passpass', NULL),

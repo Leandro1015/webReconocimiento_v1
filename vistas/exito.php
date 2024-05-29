@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/estilo.css">
-        <title>Resultado del Registro</title>
+        <title>Resultado del Envío del Reconocimiento</title>
     </head>
     <body>
         <div class="contenedor">
-            <h2>Resultado del Registro</h2>
-            <p class="mensaje">¡Te has registrado con éxito!</p>
-            <a href="inicio.html" class="boton">Ir a la página de inicio</a>
+            <h2>Resultado</h2>
+            <p class="mensaje">¡Se ha enviado tu reconocimiento!</p>
+            <a href="index.php?c=Controlador_sesion&m=comprobar" class="boton">Ir a la página de inicio</a>
         </div>
     </body>
 </html>
