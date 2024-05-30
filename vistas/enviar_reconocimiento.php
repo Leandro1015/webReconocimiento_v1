@@ -16,8 +16,6 @@
                 <label>Descripción:</label><br>
                 <textarea name="descripcion"></textarea><br><br>
 
-                <input type="hidden" name="idAlumnoEnvia" value="<?php echo $_SESSION['idAlumnoEnvia']; ?>">
-
                 <label>Alumno que recibe:</label><br>
                 <select name="idAlumnoRecibe">
                     <?php

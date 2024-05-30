@@ -21,7 +21,7 @@
                 $resultado = $this->identificacion->iniciarSesion($nombre, $contrasenia);
                 
                 if ($resultado) {
-                    $_SESSION['idAlumnoEnvia'] = $resultado['num_Alumno']; 
+                    $_SESSION['numAlumno'] = $resultado['num_Alumno']; 
                     $this->nombre_vista = './vistas/inicio';
                 } 
                 else {
@@ -35,11 +35,15 @@
                 $this->nombre_vista = './vistas/forminiciosesion';
                 return $msj;
             }
-        }
-        
+        }   
 
         public function mostrarFRG() {
             $this->nombre_vista = './vistas/registro_form';
+        }
+
+        public function cerrarSesion(){
+            session_start();
+            session_destroy();
         }
 
         public function registrar() {

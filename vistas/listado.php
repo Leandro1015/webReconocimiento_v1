@@ -12,7 +12,7 @@
             <ul>
                 <?php
                     $i = 1;
-                    foreach ($datos_vista['reconocimientos'] as $reconocimiento) {
+                    foreach ($datos_vista as $idRec) {
                         echo "<li>";
                         echo "<a href='./vistas/verMiReconocimiento.php?id=" . $reconocimiento['idReconocimiento'] . "'>";
                         echo "Reconocimiento " . $i;
@@ -21,7 +21,16 @@
                         $i++;
                     }
                 ?>
+
             </ul>
         </div>
+        <a href='./verMiReconocimiento.php?id=3'>
+        <a href='../index.php/?c=Controlador_rec&m=verMiReconocimiento&id=3'>
+
+        <a href='./vistas/verMiReconocimiento.php?id=6'>
+        <a href='./vistas/verMiReconocimiento.php?id=9'>
+        <a href='./vistas/verMiReconocimiento.php?id=14'>            
+
+
     </body>
 </html>
