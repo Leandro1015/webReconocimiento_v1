@@ -12,7 +12,7 @@
             <ul>
                 <?php
                     $i = 1;
-                    foreach ($datos_vista as $idRec) {
+                    foreach ($datos_vista as $idReconocimiento) {
                         echo "<li>";
                         echo "<a href='./vistas/verMiReconocimiento.php?id=" . $reconocimiento['idReconocimiento'] . "'>";
                         echo "Reconocimiento " . $i;

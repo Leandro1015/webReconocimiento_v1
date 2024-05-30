@@ -19,8 +19,8 @@
                 <label>Alumno que recibe:</label><br>
                 <select name="idAlumnoRecibe">
                     <?php
-                        if (!empty($datos_vista['alumnos'])) {
-                            foreach ($datos_vista['alumnos'] as $alumno) {
+                        if (!empty($datos_vista)) {
+                            foreach ($datos_vista as $alumno) {
                                 echo "<option value='" . $alumno['num_Alumno'] . "'>" . $alumno['nombre'] . "</option>";
                             }
                         } else {

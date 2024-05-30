@@ -22,6 +22,9 @@
                 <label>Contraseña:</label><br>
                 <input type="password" name="contrasenia"><br><br>
 
+                <label>Confirmar Contraseña:</label><br>
+                <input type="password" name="confirmarContrasenia"><br><br>
+
                 <label>Página Web de Reconocimiento:</label><br>
                 <input type="text" name="webReconocimiento"><br><br>
 

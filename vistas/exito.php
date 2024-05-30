@@ -10,7 +10,8 @@
         <div class="contenedor">
             <h2>Resultado</h2>
             <p class="mensaje">¡Se ha enviado tu reconocimiento!</p>
-            <a href="index.php?c=Controlador_sesion&m=comprobar" class="boton">Ir a la página de inicio</a>
+            <p><a href="index.php?c=Controlador_rec&m=mostrarInicio" class="boton">Ir a la página de inicio</a></p>
+            <p><a href="index.php?c=Controlador_rec&m=mostrarFREC" class="boton">¿Quieres hacer otro reconocimiento?</a></p>
         </div>
     </body>
 </html>

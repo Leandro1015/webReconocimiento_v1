@@ -16,8 +16,8 @@
             }
         }
 
-        public function obtenerAlumnos() {
-            $sql = "SELECT num_Alumno, nombre FROM alumno ORDER BY num_Alumno";
+        public function obtenerAlumnos($idAlumnoEnvia) {
+            $sql = "SELECT num_Alumno, nombre FROM alumno WHERE num_Alumno != '$idAlumnoEnvia' ORDER BY num_Alumno";
             $resultado = $this->conexion->query($sql);
             
             $alumnos = [];
@@ -29,6 +29,7 @@
             
             return $alumnos;
         }
+        
 
         public function obtenerReconocimientos($num_Alumno) {
             $sql = "SELECT idReconocimiento FROM reconocimiento WHERE idAlumnoRecibe = '$num_Alumno'";
