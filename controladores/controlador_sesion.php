@@ -6,7 +6,6 @@ class Controlador_sesion {
     private $identificacion;
 
     public function __construct() {
-        session_start();
         $this->identificacion = new M_identificacion();
     }
 
@@ -40,9 +39,12 @@ class Controlador_sesion {
         $this->nombre_vista = './vistas/registro_form';
     }
 
-    public function cerrarSesion() {
-        session_start();
+    public function cerrarSesion(){
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         session_destroy();
+        $this->nombre_vista = './vistas/forminiciosesion'; // Redirige a la página de inicio de sesión
     }
 
     public function registrar() {

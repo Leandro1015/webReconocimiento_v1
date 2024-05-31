@@ -29,6 +29,7 @@
                     ?>
                 </select><br><br>
                 <input type="submit" value="Enviar">
+                <p><a href="index.php?c=Controlador_rec&m=mostrarInicio" class="boton">Ir a la página de inicio</a></p>
             </form>
         </div>
     </body>

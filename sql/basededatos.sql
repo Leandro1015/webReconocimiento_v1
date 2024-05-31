@@ -51,8 +51,8 @@ CREATE INDEX ix_alumno_nombre ON alumno(nombre);
 (20, 'Adriana', 'adriana.ruiz20@gmail.com', 'passwordxyz', 'www.adrianaruiz.com');*/
 
 /*INSERT INTO reconocimiento (momento, descripcion, idAlumEnvia, idAlumRecibe) VALUES
-('Logro', 'clase', 'Excelente trabajo en el proyecto final', 5, 12),
-('Agradecimiento', 'clase', 'Gracias por tu ayuda en la clase de diseño', 10, 3),
-('Reconocimiento', 'clase', 'Has demostrado un gran esfuerzo en tu participación en clase', 14, 8),
-('Motivación', 'clase', 'Sigue así, tu progreso es notable', 1, 17),
-('Colaboración', 'clase', 'Trabajo en equipo excepcional en el proyecto de Programación', 6, 15);*/
+('clase', 'Excelente trabajo en el proyecto final', 5, 12),
+('clase', 'Gracias por tu ayuda en la clase de diseño', 10, 3),
+('clase', 'Has demostrado un gran esfuerzo en tu participación en clase', 14, 8),
+('clase', 'Sigue así, tu progreso es notable', 1, 17),
+('clase', 'Trabajo en equipo excepcional en el proyecto de Programación', 6, 15);*/

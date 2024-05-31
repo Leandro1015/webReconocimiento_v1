@@ -1,7 +1,8 @@
 <?php
     require_once 'conexion.php';
 
-    class M_reconocimiento extends Conectar {   
+    class M_reconocimiento extends Conectar 
+    {   
         public function enviar($idAlumnoEnvia, $idAlumnoRecibe, $momento, $descripcion) {
             $sql = "INSERT INTO reconocimiento (idAlumEnvia, idAlumRecibe, momento, descripcion) 
                     VALUES ('$idAlumnoEnvia', '$idAlumnoRecibe', '$momento', '$descripcion')";
@@ -28,12 +29,13 @@
             }
             
             return $alumnos;
-        }
-        
+        }     
 
         public function obtenerReconocimientos($num_Alumno) {
-            $sql = "SELECT idReconocimiento FROM reconocimiento WHERE idAlumnoRecibe = '$num_Alumno'";
+           
+           $sql = "SELECT idReconocimiento FROM reconocimiento WHERE idAlumRecibe = '$num_Alumno'";
             $resultado = $this->conexion->query($sql);
+            
             $reconocimientos = array();
 
             if ($resultado && $resultado->num_rows > 0) {

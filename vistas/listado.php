@@ -11,26 +11,19 @@
             <h2>Lista de Reconocimientos</h2>
             <ul>
                 <?php
-                    $i = 1;
-                    foreach ($datos_vista as $idReconocimiento) {
-                        echo "<li>";
-                        echo "<a href='./vistas/verMiReconocimiento.php?id=" . $reconocimiento['idReconocimiento'] . "'>";
-                        echo "Reconocimiento " . $i;
-                        echo "</a>";
-                        echo "</li>";
-                        $i++;
+                    if (!empty($datos_vista)) {
+                        $orden = 1; // Orden de reconocimiento (1, 2, 3...)
+                        foreach ($datos_vista as $reconocimiento) {
+                            echo "<li>";
+                            echo "<a href='index.php?c=Controlador_rec&m=verUnReconocimiento&id=" . $reconocimiento['idReconocimiento'] . "'>Ver reconocimiento</a>";
+                            echo "</li>";
+                            $orden++;
+                        }
+                    } else {
+                        echo "<li>No hay reconocimientos disponibles</li>";
                     }
                 ?>
-
             </ul>
         </div>
-        <a href='./verMiReconocimiento.php?id=3'>
-        <a href='../index.php/?c=Controlador_rec&m=verMiReconocimiento&id=3'>
-
-        <a href='./vistas/verMiReconocimiento.php?id=6'>
-        <a href='./vistas/verMiReconocimiento.php?id=9'>
-        <a href='./vistas/verMiReconocimiento.php?id=14'>            
-
-
     </body>
 </html>

@@ -22,6 +22,7 @@
 
     // Crear instancia del controlador y llamar al método correspondiente
     $objetoContr = new $nombre_controlador();
+
     $datos_vista = $objetoContr->{$nombre_metodo}();
 
     // Obtener el nombre de la vista desde el controlador

@@ -6,13 +6,15 @@ class Controlador_rec {
     private $reconocimiento;
 
     public function __construct() {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $this->reconocimiento = new M_reconocimiento();
     }
 
     public function mostrarFREC() {
-        $idAlumnoEnvia = $_SESSION['idAlumnoEnvia'];
-
+        $idAlumnoEnvia = $_SESSION['numAlumno'];
+        
         $reconocimiento = new M_reconocimiento();
         $datos_vista = $reconocimiento->obtenerAlumnos($idAlumnoEnvia);
         
@@ -23,6 +25,7 @@ class Controlador_rec {
 
     public function comprobarRec() {
         $msj = null;
+        
         if (!empty($_POST['momento']) && !empty($_POST['descripcion']) && !empty($_POST['idAlumnoRecibe'])) {
 
             $idAlumnoEnvia = $_SESSION['numAlumno']; 
@@ -46,13 +49,18 @@ class Controlador_rec {
         return $msj;
     }   
 
-    public function verMisReconocimientos($num_Alumno) {
+    public function verMisReconocimientos() {
+       
         $idAlumnoRecibe = $_SESSION['numAlumno'];
-        
-        $datos_vista = $this->reconocimiento->obtenerReconocimientos($num_Alumno);
+         
+        $datos_vista = $this->reconocimiento->obtenerReconocimientos($idAlumnoRecibe);
+    
         $this->nombre_vista = './vistas/listado';
-        
         return $datos_vista;
+    }
+
+    public function verUnReconocimiento($num_Alumno) {
+        $this->nombre_vista = './vistas/verMiReconocimiento';
     }
 
     public function mostrarInicio() {      
