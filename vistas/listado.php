@@ -15,6 +15,7 @@
                         $orden = 1; // Orden de reconocimiento (1, 2, 3...)
                         foreach ($datos_vista as $reconocimiento) {
                             echo "<li>";
+                            echo "<span class='reconocimiento'>Reconocimiento " . $orden . ":</span>";
                             echo "<a href='index.php?c=Controlador_rec&m=verUnReconocimiento&id=" . $reconocimiento['idReconocimiento'] . "'>Ver reconocimiento</a>";
                             echo "</li>";
                             $orden++;
@@ -24,6 +25,7 @@
                     }
                 ?>
             </ul>
+            <p><a href="index.php?c=Controlador_rec&m=mostrarInicio" class="boton">Ir a la página de inicio</a></p>
         </div>
     </body>
 </html>

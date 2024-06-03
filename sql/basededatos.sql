@@ -8,7 +8,7 @@ CREATE TABLE alumno (
   nombre varchar(80) NOT NULL,
   correo varchar(255) NOT NULL,
   contrasenia varchar(100) NOT NULL,
-  webReconocimiento varchar(50),
+  webReconocimiento varchar(50) NULL,
   constraint pk_usuario PRIMARY KEY (num_Alumno),
   constraint correo_unico UNIQUE(correo),
   constraint WEB_unicA UNIQUE(webReconocimiento)  
@@ -42,7 +42,7 @@ CREATE INDEX ix_alumno_nombre ON alumno(nombre);
 (11, 'Martín', 'martinp11@gmail.com', 'passpass', NULL),
 (12, 'Lucía', 'luciamartinez12@gmail.com', 'mysecurepass', 'www.luciamartinez.com'),
 (13, 'Alejandro', 'ale.rodriguez13@gmail.com', 'abcdef', NULL),
-(14, 'Elena', 'elena.lopez14@gmail.com', 'passwordabc', 'www.elenalopez.com'),
+(14, 'Helen', 'Helen.lopez14@gmail.com', 'passwordabc', 'www.helenlopez.com'),
 (15, 'Manuel', 'manuel.gomez15@gmail.com', 'securepass123', NULL),
 (16, 'Carmen', 'carmen.sanchez16@gmail.com', '123abc', 'www.carmensanchez.com'),
 (17, 'Daniel', 'danielf17@gmail.com', 'passpass123', NULL),

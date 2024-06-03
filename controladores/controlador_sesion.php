@@ -15,16 +15,19 @@ class Controlador_sesion {
 
     public function comprobar() {   
         $msj = null;
-        if (!empty($_POST['nombre']) && !empty($_POST['contrasenia'])) {
-            $nombre = $_POST['nombre'];
+        if (!empty($_POST['correo']) && !empty($_POST['contrasenia'])) {
+            $correo = $_POST['correo'];
             $contrasenia = $_POST['contrasenia'];
-            $resultado = $this->identificacion->iniciarSesion($nombre, $contrasenia);
+            $resultado = $this->identificacion->iniciarSesion($correo, $contrasenia);
             
             if ($resultado) {
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
                 $_SESSION['numAlumno'] = $resultado['num_Alumno']; 
                 $this->nombre_vista = './vistas/inicio';
             } else {
-                $msj = "Usuario y/o contraseña incorrectos.";
+                $msj = "Correo y/o contraseña incorrectos.";
                 $this->nombre_vista = './vistas/forminiciosesion';
                 return $msj;
             }

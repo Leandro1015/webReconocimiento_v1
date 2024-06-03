@@ -46,4 +46,16 @@
 
             return $reconocimientos;
         }
+
+        public function obtenerReconocimiento($id) {
+            $sql = "SELECT momento, descripcion FROM reconocimiento WHERE idReconocimiento = '$id'";
+            $resultado = $this->conexion->query($sql);
+            
+            if ($resultado && $resultado->num_rows > 0) {
+                return $resultado->fetch_assoc();
+            } else {
+                return null;
+            }
+        }
+        
     }

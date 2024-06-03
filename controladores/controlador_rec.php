@@ -48,20 +48,21 @@ class Controlador_rec {
 
         return $msj;
     }   
-
-    public function verMisReconocimientos() {
-       
+    public function verMisReconocimientos() {  
         $idAlumnoRecibe = $_SESSION['numAlumno'];
          
         $datos_vista = $this->reconocimiento->obtenerReconocimientos($idAlumnoRecibe);
     
         $this->nombre_vista = './vistas/listado';
+
         return $datos_vista;
     }
 
-    public function verUnReconocimiento($num_Alumno) {
-        $this->nombre_vista = './vistas/verMiReconocimiento';
-    }
+    public function verUnReconocimiento($id) {
+    $datos_vista = $this->reconocimiento->obtenerReconocimiento($id);
+    $this->nombre_vista = './vistas/verMiReconocimiento';
+    return $datos_vista;
+}
 
     public function mostrarInicio() {      
         $this->nombre_vista = './vistas/inicio';

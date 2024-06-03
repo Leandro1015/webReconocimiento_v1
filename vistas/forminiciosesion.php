@@ -10,8 +10,8 @@
         <div class="contenedor">
             <h2>Iniciar Sesión</h2>
             <form action="index.php?c=Controlador_sesion&m=comprobar" method="post">
-                <label>Nombre del Alumno:</label><br/>
-                <input type="text" name="nombre"><br/>
+                <label>Correo del Alumno:</label><br/>
+                <input type="email" name="correo"><br/>
 
                 <label>Contraseña:</label><br/>
                 <input type="password" name="contrasenia"><br/><br/>

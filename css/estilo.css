@@ -98,3 +98,23 @@ a:hover {
     border-radius: 5px;
     text-decoration: none;
 }
+
+ul {
+    list-style-type: none;
+}
+
+/* Estilo para la lista de reconocimientos */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilo para los elementos de la lista */
+li {
+    margin-bottom: 10px;
+}
+
+/* Estilo para el nombre del reconocimiento */
+.reconocimiento {
+    font-weight: bold;
+}
