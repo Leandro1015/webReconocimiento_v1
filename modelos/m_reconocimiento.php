@@ -4,58 +4,140 @@
     class M_reconocimiento extends Conectar 
     {   
         public function enviar($idAlumnoEnvia, $idAlumnoRecibe, $momento, $descripcion) {
+            // Consulta preparada para insertar un nuevo reconocimiento
             $sql = "INSERT INTO reconocimiento (idAlumEnvia, idAlumRecibe, momento, descripcion) 
-                    VALUES ('$idAlumnoEnvia', '$idAlumnoRecibe', '$momento', '$descripcion')";
-
-            $resultado = $this->conexion->query($sql);
-
-            if ($resultado && $this->conexion->affected_rows > 0) {
-                $this->conexion->close();
-                return true; 
+                    VALUES (?, ?, ?, ?)";
+            
+            // Preparar la consulta
+            $consultaPreparada = $this->conexion->prepare($sql);
+        
+            // Verificar si la preparación de la consulta fue exitosa
+            if ($consultaPreparada) {
+                // Vincular los parámetros a la consulta
+                $consultaPreparada->bind_param("iiss", $idAlumnoEnvia, $idAlumnoRecibe, $momento, $descripcion);
+                
+                // Ejecutar la consulta
+                $resultado = $consultaPreparada->execute();
+                
+                // Verificar si la ejecución fue exitosa
+                if ($resultado) {
+                    if ($consultaPreparada->affected_rows > 0) {
+                        // Cerrar la consulta
+                        $consultaPreparada->close();
+                        return true;
+                    } else {
+                        // Cerrar la consulta
+                        $consultaPreparada->close();
+                        return "No se pudo insertar el reconocimiento, ningún registro afectado.";
+                    }
+                } else {
+                    // Cerrar la consulta
+                    $consultaPreparada->close();
+                    return "Error al ejecutar la consulta: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                }
             } else {
-                return "Error al enviar reconocimiento: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                return "Error al preparar la consulta: (" . $this->conexion->errno . ") " . $this->conexion->error;
             }
         }
 
         public function obtenerAlumnos($idAlumnoEnvia) {
-            $sql = "SELECT num_Alumno, nombre FROM alumno WHERE num_Alumno != '$idAlumnoEnvia' ORDER BY num_Alumno";
-            $resultado = $this->conexion->query($sql);
+            // Consulta preparada para seleccionar alumnos que no son el remitente
+            $sql = "SELECT num_Alumno, nombre FROM alumno WHERE num_Alumno != ? ORDER BY num_Alumno";
             
-            $alumnos = [];
-            if ($resultado && $resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_assoc()) {
-                    $alumnos[] = $fila;
+            // Preparar la consulta
+            $consultaPreparada = $this->conexion->prepare($sql);
+        
+            // Verificar si la preparación de la consulta fue exitosa
+            if ($consultaPreparada) {
+                // Vincular el parámetro a la consulta
+                $consultaPreparada->bind_param("i", $idAlumnoEnvia);
+                
+                // Ejecutar la consulta
+                $consultaPreparada->execute();
+                
+                // Obtener el resultado de la consulta
+                $resultado = $consultaPreparada->get_result();
+                
+                $alumnos = [];
+                if ($resultado && $resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        $alumnos[] = $fila;
+                    }
                 }
+                
+                // Cerrar la consulta
+                $consultaPreparada->close();
+                
+                return $alumnos;
+            } else {
+                return "Error al preparar la consulta: (" . $this->conexion->errno . ") " . $this->conexion->error;
             }
-            
-            return $alumnos;
-        }     
+        }           
 
         public function obtenerReconocimientos($num_Alumno) {
-           
-           $sql = "SELECT idReconocimiento FROM reconocimiento WHERE idAlumRecibe = '$num_Alumno'";
-            $resultado = $this->conexion->query($sql);
+            // Consulta preparada para seleccionar reconocimientos por el id del alumno
+            $sql = "SELECT idReconocimiento FROM reconocimiento WHERE idAlumRecibe = ?";
             
-            $reconocimientos = array();
-
-            if ($resultado && $resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_assoc()) {
-                    $reconocimientos[] = $fila;
+            // Preparar la consulta
+            $consultaPreparada = $this->conexion->prepare($sql);
+        
+            // Verificar si la preparación de la consulta fue exitosa
+            if ($consultaPreparada) {
+                // Vincular el parámetro a la consulta
+                $consultaPreparada->bind_param("i", $num_Alumno);
+                
+                // Ejecutar la consulta
+                $consultaPreparada->execute();
+                
+                // Obtener el resultado de la consulta
+                $resultado = $consultaPreparada->get_result();
+                
+                $reconocimientos = array();
+        
+                if ($resultado && $resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        $reconocimientos[] = $fila;
+                    }
                 }
+                
+                // Cerrar la consulta
+                $consultaPreparada->close();
+                
+                return $reconocimientos;
+            } else {
+                return "Error al preparar la consulta: (" . $this->conexion->errno . ") " . $this->conexion->error;
             }
-
-            return $reconocimientos;
-        }
+        }        
 
         public function obtenerReconocimiento($id) {
-            $sql = "SELECT momento, descripcion FROM reconocimiento WHERE idReconocimiento = '$id'";
-            $resultado = $this->conexion->query($sql);
+            // Consulta preparada para seleccionar el reconocimiento por idReconocimiento
+            $sql = "SELECT momento, descripcion FROM reconocimiento WHERE idReconocimiento = ?";
             
-            if ($resultado && $resultado->num_rows > 0) {
-                return $resultado->fetch_assoc();
+            // Preparar la consulta
+            $consultaPreparada = $this->conexion->prepare($sql);
+        
+            // Verificar si la preparación de la consulta fue exitosa
+            if ($consultaPreparada) {
+                // Vincular el parámetro a la consulta
+                $consultaPreparada->bind_param("i", $id);
+                
+                // Ejecutar la consulta
+                $consultaPreparada->execute();
+                
+                // Obtener el resultado de la consulta
+                $resultado = $consultaPreparada->get_result();
+                
+                // Verificar si se encontró un reconocimiento
+                if ($resultado && $resultado->num_rows > 0) {
+                    return $resultado->fetch_assoc();
+                } else {
+                    return null;
+                }
+                
+                // Cerrar la consulta
+                $consultaPreparada->close();
             } else {
-                return null;
+                return "Error al preparar la consulta: (" . $this->conexion->errno . ") " . $this->conexion->error;
             }
         }
-        
     }

@@ -56,7 +56,13 @@ class Controlador_sesion {
             $nombre = $_POST['nombre'];
             $correo = $_POST['correo'];
             $contrasenia = $_POST['contrasenia'];
-            $webReconocimiento = $_POST['webReconocimiento'];
+
+            if (!empty($_POST['webReconocimiento'])) {
+                $webReconocimiento = $_POST['webReconocimiento'];
+            } 
+            else {
+                $webReconocimiento = null;
+            }
 
             $msj = $this->identificacion->comprobarRegistro($num_Alumno, $correo);
 
