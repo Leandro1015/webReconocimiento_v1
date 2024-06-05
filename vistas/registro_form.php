@@ -35,6 +35,7 @@
                     echo "<p class='error-message'>" . $datos_vista . "</p>";
                 } 
             ?>
+            <p><a href="index.php?c=Controlador_sesion&m=mostrarFIS">¿Ya estás registrado? ¡Inicia aquí!</a></p>
         </div>
     </body>
 </html>

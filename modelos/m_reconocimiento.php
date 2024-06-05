@@ -129,15 +129,36 @@
                 
                 // Verificar si se encontró un reconocimiento
                 if ($resultado && $resultado->num_rows > 0) {
+                    $consultaPreparada->close(); 
                     return $resultado->fetch_assoc();
                 } else {
+                    $consultaPreparada->close(); 
                     return null;
-                }
-                
+                } 
                 // Cerrar la consulta
-                $consultaPreparada->close();
+                   
             } else {
+              
                 return "Error al preparar la consulta: (" . $this->conexion->errno . ") " . $this->conexion->error;
             }
         }
+
+        public function ultimoReconocimiento($idAlumnoRecibe) {
+            $SQL = "SELECT nombre FROM alumno WHERE num_Alumno = ?";
+            $consultaPreparada = $this->conexion->prepare($SQL);
+        
+            if ($consultaPreparada) {
+                $consultaPreparada->bind_param("i", $idAlumnoRecibe);
+                $consultaPreparada->execute();
+        
+                $nombreAlumno = null;
+                $consultaPreparada->bind_result($nombreAlumno);
+                $consultaPreparada->fetch();
+                $consultaPreparada->close();
+        
+                return $nombreAlumno;
+            } else {
+                return null;
+            }
+        }    
     }

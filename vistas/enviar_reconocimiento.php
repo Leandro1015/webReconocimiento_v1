@@ -9,6 +9,12 @@
     <body>
         <div class="contenedor">
             <h2>Enviar Reconocimiento</h2>
+            <?php
+                // Verificar si la cookie está presente y mostrar el mensaje solo en ese caso
+                if (isset($_COOKIE['ultimo'])) {
+                    echo '<p>El último compañero al que le has enviado un reconocimiento es '.$_COOKIE['ultimo'].'.</p>';
+                }
+            ?>
             <form action="index.php?c=Controlador_rec&m=comprobarRec" method="POST">
                 <label>Momento:</label><br>
                 <input type="text" name="momento"><br><br>
@@ -25,7 +31,7 @@
                             }
                         } else {
                             echo "<option value=''>No hay alumnos disponibles</option>";
-                        }                
+                        }              
                     ?>
                 </select><br><br>
                 <input type="submit" value="Enviar">

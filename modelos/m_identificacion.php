@@ -89,7 +89,6 @@
             return $resultado;
         }
 
-
         public function comprobarRegistro($num_Alumno, $correo) {
             // Consulta preparada para verificar si el ID de alumno o el correo ya están registrados
             $sql = "SELECT num_Alumno, correo FROM alumno WHERE num_Alumno = ? OR correo = ?";

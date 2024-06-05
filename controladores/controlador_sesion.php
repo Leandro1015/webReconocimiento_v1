@@ -13,7 +13,7 @@ class Controlador_sesion {
         $this->nombre_vista = './vistas/forminiciosesion';
     }
 
-    public function comprobar() {   
+    public function comprobar() {  
         $msj = null;
         if (!empty($_POST['correo']) && !empty($_POST['contrasenia'])) {
             $correo = $_POST['correo'];
