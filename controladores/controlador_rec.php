@@ -9,6 +9,7 @@
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
+            $this->verificarLaSesion();
             $this->reconocimiento = new M_reconocimiento();
         }
 
@@ -74,6 +75,13 @@
             if (!empty($idAlumnoRecibe)) {
                 $ultimo_alumno = $this->reconocimiento->ultimoReconocimiento($idAlumnoRecibe);
                 setcookie('ultimo', $ultimo_alumno, time() + 3600, "/");
+            }
+        }
+
+        private function verificarLaSesion() {
+            if (!isset($_SESSION['numAlumno'])) {
+                header('Location: index.php');
+                exit();
             }
         }
     }

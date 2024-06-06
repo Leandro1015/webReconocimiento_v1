@@ -1,5 +1,6 @@
 <?php
     require_once './config/config.php';
+    echo 'METODO_POR_DEFECTO';
 
     // Verificar si el controlador y el método están definidos en la URL
     if (!isset($_GET["c"]) || !isset($_GET["m"])) {
@@ -25,6 +26,11 @@
         require_once $ruta_controlador;
     } else {
         echo "Error: El controlador " . $nombre_controlador . " no existe.";
+    }
+
+    require_once $ruta_controlador;
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
     }
 
     // Crear instancia del controlador y llamar al método correspondiente
