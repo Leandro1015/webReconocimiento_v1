@@ -19,12 +19,12 @@
         $id = null;
     }
 
-    $ruta_controlador = './controladores/' . $nombre_controlador . '.php';
+    $ruta_controlador = 'controladores/'.$nombre_controlador.'.php';
 
     if (file_exists($ruta_controlador)) {
         require_once $ruta_controlador;
     } else {
-        echo "Error: El controlador " . $nombre_controlador . " no existe.";
+        echo "Error: El controlador ".$nombre_controlador." no existe.";
     }
 
     require_once $ruta_controlador;
@@ -38,12 +38,12 @@
     $datos_vista = $objetoContr->{$nombre_metodo}($id);
 
     // Obtener el nombre de la vista desde el controlador
-    $vista = $objetoContr->nombre_vista . '.php';
+    $vista = $objetoContr->nombre_vista.'.php';
 
     if (file_exists($vista)) {
         require_once $vista;
     } else {
-        echo "Error: La vista " . $vista . " no existe.";
+        echo "Error: La vista ".$vista." no existe.";
     }
 
     // siempre es un archivo

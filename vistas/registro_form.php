@@ -9,7 +9,7 @@
     <body>    
         <div class="contenedor">
             <h2>Registro</h2>
-            <form action="index.php?c=Controlador_sesion&m=registrar" method="post">
+            <form action="index.php?c=controlador_sesion&m=registrar" method="post">
                 <label>Numero de Alumno:</label><br>
                 <input type="number" name="num_Alumno"><br><br>
 
@@ -31,11 +31,11 @@
                 <input type="submit" value="Enviar">
             </form>
             <?php 
-                if (isset($datos_vista)) { 
-                    echo "<p class='error-message'>" . $datos_vista . "</p>";
+                if (!empty($datos_vista)) { 
+                    echo "<p class='error-message'>".$datos_vista."</p>";
                 } 
             ?>
-            <p><a href="index.php?c=Controlador_sesion&m=mostrarFIS">¿Ya estás registrado? ¡Inicia aquí!</a></p>
+            <p><a href="index.php?c=controlador_sesion&m=mostrarFIS">¿Ya estás registrado? ¡Inicia aquí!</a></p>
         </div>
     </body>
 </html>

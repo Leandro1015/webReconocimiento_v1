@@ -9,7 +9,7 @@
     <body>
         <div class="contenedor">
             <h2>Iniciar Sesión</h2>
-            <form action="index.php?c=Controlador_sesion&m=comprobar" method="post">
+            <form action="index.php?c=controlador_sesion&m=comprobar" method="post">
                 <label>Correo del Alumno:</label><br/>
                 <input type="email" name="correo"><br/>
 
@@ -19,10 +19,10 @@
                 <input type="submit" value="Enviar">
             </form>
             <!-- Botón o enlace para redirigir a registro_form.html -->
-            <p><a href="index.php?c=Controlador_sesion&m=mostrarFRG">¿No tienes una cuenta? ¡Regístrate!</a></p>
+            <p><a href="index.php?c=controlador_sesion&m=mostrarFRG">¿No tienes una cuenta? ¡Regístrate!</a></p>
             <?php 
                 if (isset($datos_vista)) { 
-                    echo "<p class='error-message'>" . $datos_vista . "</p>";
+                    echo "<p class='error-message'>".$datos_vista."</p>";
                 } 
             ?>
         </div>

@@ -14,12 +14,12 @@
         }
 
         public function mostrarFREC() {
-            $idAlumnoEnvia = $_SESSION['numAlumno'];
+            $idAlumnoEnvia = $_SESSION['num_Alumno'];
             
             $reconocimiento = new M_reconocimiento();
             $datos_vista = $reconocimiento->obtenerAlumnos($idAlumnoEnvia);
             
-            $this->nombre_vista = './vistas/enviar_reconocimiento';
+            $this->nombre_vista = 'vistas/enviar_reconocimiento';
         
             return $datos_vista;
         }
@@ -29,7 +29,7 @@
             
             if (!empty($_POST['momento']) && !empty($_POST['descripcion']) && !empty($_POST['idAlumnoRecibe'])) {
 
-                $idAlumnoEnvia = $_SESSION['numAlumno']; 
+                $idAlumnoEnvia = $_SESSION['num_Alumno']; 
                 $momento = $_POST['momento'];
                 $descripcion = $_POST['descripcion'];
                 $idAlumnoRecibe = $_POST['idAlumnoRecibe'];
@@ -39,36 +39,36 @@
                 if ($resultado === true) {
                     $this->ultimoReconocimiento($idAlumnoRecibe);
 
-                    $this->nombre_vista = './vistas/exito';
+                    $this->nombre_vista = 'vistas/exito';
                 } else {
                     $msj = "Hubo un error al enviar el reconocimiento.";
-                    $this->nombre_vista = './vistas/enviar_reconocimiento';
+                    $this->nombre_vista = 'vistas/enviar_reconocimiento';
                 }
             } else { 
                 $msj = "Por favor, complete todos los campos.";
-                $this->nombre_vista = './vistas/enviar_reconocimiento';
+                $this->nombre_vista = 'vistas/enviar_reconocimiento';
             }
 
             return $msj;
         }   
         public function verMisReconocimientos() {  
-            $idAlumnoRecibe = $_SESSION['numAlumno'];
+            $idAlumnoRecibe = $_SESSION['num_Alumno'];
             
             $datos_vista = $this->reconocimiento->obtenerReconocimientos($idAlumnoRecibe);
         
-            $this->nombre_vista = './vistas/listado';
+            $this->nombre_vista = 'vistas/listado';
 
             return $datos_vista;
         }
 
         public function verUnReconocimiento($id) {
             $datos_vista = $this->reconocimiento->obtenerReconocimiento($id);
-            $this->nombre_vista = './vistas/verMiReconocimiento';
+            $this->nombre_vista = 'vistas/verMiReconocimiento';
             return $datos_vista;
         }
 
         public function mostrarInicio() {
-            $this->nombre_vista = './vistas/inicio';
+            $this->nombre_vista = 'vistas/inicio';
         }
 
         public function ultimoReconocimiento($idAlumnoRecibe) {
@@ -79,7 +79,7 @@
         }
 
         private function verificarLaSesion() {
-            if (!isset($_SESSION['numAlumno'])) {
+            if (!isset($_SESSION['num_Alumno'])) {
                 header('Location: index.php');
                 exit();
             }

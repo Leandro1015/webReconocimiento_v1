@@ -12,14 +12,14 @@
             <?php
                 if (!empty($datos_vista)) {
                     $reconocimiento = $datos_vista;
-                    echo "<p>Momento: " . $reconocimiento['momento'] . "</p>";
-                    echo "<p>Descripción: " . $reconocimiento['descripcion'] . "</p>";
+                    echo "<p>Momento: ".$reconocimiento['momento']."</p>";
+                    echo "<p>Descripción: ".$reconocimiento['descripcion']."</p>";
                 } 
                 else {
                     echo "<p>Error: No se encontraron detalles de reconocimiento.</p>";
                 }
             ?>
-            <p><a href="index.php?c=Controlador_rec&m=verMisReconocimientos" class="boton">Volver</a></p>
+            <p><a href="index.php?c=controlador_rec&m=verMisReconocimientos" class="boton">Volver</a></p>
         </div>
     </body>
 </html>

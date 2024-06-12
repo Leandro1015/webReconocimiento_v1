@@ -10,7 +10,7 @@ class Controlador_sesion {
     }
 
     public function mostrarFIS() {
-        $this->nombre_vista = './vistas/forminiciosesion';
+        $this->nombre_vista = 'vistas/forminiciosesion';
     }
 
     public function comprobar() {  
@@ -24,22 +24,22 @@ class Controlador_sesion {
                 if (session_status() == PHP_SESSION_NONE) {
                     session_start();
                 }
-                $_SESSION['numAlumno'] = $resultado['num_Alumno']; 
-                $this->nombre_vista = './vistas/inicio';
+                $_SESSION['num_Alumno'] = $resultado['num_Alumno']; 
+                $this->nombre_vista = 'vistas/inicio';
             } else {
                 $msj = "Correo y/o contraseña incorrectos.";
-                $this->nombre_vista = './vistas/forminiciosesion';
+                $this->nombre_vista = 'vistas/forminiciosesion';
                 return $msj;
             }
         } else { 
             $msj = "Por favor, complete todos los campos.";
-            $this->nombre_vista = './vistas/forminiciosesion';
+            $this->nombre_vista = 'vistas/forminiciosesion';
             return $msj;
         }
     }   
 
     public function mostrarFRG() {
-        $this->nombre_vista = './vistas/registro_form';
+        $this->nombre_vista = 'vistas/registro_form';
     }
 
     public function cerrarSesion(){
@@ -47,7 +47,7 @@ class Controlador_sesion {
             session_start();
         }
         session_destroy();
-        $this->nombre_vista = './vistas/forminiciosesion'; // Redirige a la página de inicio de sesión
+        $this->nombre_vista = 'vistas/forminiciosesion'; // Redirige a la página de inicio de sesión
     }
 
     public function registrar() {
@@ -70,17 +70,17 @@ class Controlador_sesion {
                 $resultado = $this->identificacion->registrar($num_Alumno, $nombre, $correo, $contrasenia, $webReconocimiento);
 
                 if ($resultado === true) {
-                    $this->nombre_vista = './vistas/forminiciosesion';
+                    $this->nombre_vista = 'vistas/forminiciosesion';
                     return null;
                 } else {
                     $msj = $resultado;
                 }
             } else {
-                $this->nombre_vista = './vistas/registro_form';
+                $this->nombre_vista = 'vistas/registro_form';
             }
         } else {
             $msj = "Las contraseñas no coinciden o faltan campos por completar.";
-            $this->nombre_vista = './vistas/registro_form';
+            $this->nombre_vista = 'vistas/registro_form';
         }
 
         return $msj;
